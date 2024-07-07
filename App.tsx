@@ -1,47 +1,16 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
-
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './src/navigation/StackNavigator';
+import { AppProvider } from './src/navigation/AppContext';
+import { StatusBar, StyleSheet } from 'react-native';
 const App = () => {
-  const [activePage, setActivePage] = useState("home");
-
-  const pages = [
-    {
-      title: "Home",
-      component: () => <Text>Home</Text>,
-    },
-    {
-      title: "About",
-      component: () => <Text>About</Text>,
-    },
-    {
-      title: "Contact",
-      component: () => <Text>Contact</Text>,
-    },
-  ];
-
-  // const Stack = createStackNavigator(
-  //   {
-  //     Home: {
-  //       screen: pages[0].component,
-  //     },
-  //     About: {
-  //       screen: pages[1].component,
-  //     },
-  //     Contact: {
-  //       screen: pages[2].component,
-  //     },
-  //   },
-  //   {
-  //     initialRouteName: "Home",
-  //   }
-  // );
-
   return (
-    // <Stack.Navigator />
-    <View>
-
-    </View>
+    <AppProvider>
+      <StatusBar backgroundColor={'red'} />
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    </AppProvider>
   );
 };
 
